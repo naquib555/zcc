@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ticket Viewer</title>
+</head>
+<body>
+<h1>Ticket Viewer</h1>
+<hr>
+<h3><a th:href="@{ticket/showAll}">Click to Show All Tickets</a></h3>
+<h3>Search a Ticket</h3>
+<script>
+    function goToTicketPage() {
+        let id = document.getElementById('ticketId').value;
+        if(id == '') return false;
+        window.location.href = 'ticket/info/'+document.getElementById('ticketId').value;
+    }
+</script>
+<form method="get" id="ticketSearchForm">
+    <input type="text" id="ticketId" placeholder="Enter Ticket Id" required>
+    <button type="button" onclick="return goToTicketPage()">Search</button>
+</form>
+
+</body>
+</html>

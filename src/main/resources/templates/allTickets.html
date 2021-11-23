@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>All Tickets</title>
+
+    <link href="../static/css/style.css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Ticket Viewer</h1>
+<h3>Navigation: <a th:href="@{/ticket}">Home</a></h3>
+<div th:if="${allTickets.status}">
+    <h4><span th:text="${allTickets.data.showingText}"></span> Tickets</h4>
+    <div th:if="${allTickets.data.previousPage != 0}">
+        <a th:href="@{showAll(page=${allTickets.data.previousPage})}">Previous Page</a>
+    </div>
+    <div th:if="${allTickets.data.nextPage != 0}">
+        <a th:href="@{showAll(page=${allTickets.data.nextPage})}">Next Page</a>
+    </div>
+    <hr>
+    <table>
+        <thead>
+        <th>SL#</th>
+        <th>Subject</th>
+        <th>Status</th>
+        <th>Action</th>
+        </thead>
+        <tr th:each="ticket,iterator : ${allTickets.data.tickets}">
+            <td th:text="${(allTickets.data.previousPage * 25)+iterator.index+1}"></td>
+            <td th:text="${ticket.subject}"></td>
+            <td th:text="${ticket.status}"></td>
+            <td><a th:href="@{info/{id}(id=${ticket.id})}">View</a></td>
+        </tr>
+    </table>
+</div>
+<div th:unless="${allTickets.status}">
+    <p th:text="${allTickets.message}"></p>
+</div>
+</body>
+</html>

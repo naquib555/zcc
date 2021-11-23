@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tickets</title>
+</head>
+<body>
+<h1>Ticket Viewer</h1>
+<h3>Navigation: <a th:href="@{/ticket}">Home</a></h3>
+<hr>
+<div th:if="${ticket.status}">
+    <h3>Subject: <span th:text="${ticket.data.subject}"></span></h3>
+    <h4>Status: <span th:text="${ticket.data.status}"></span></h4>
+    <span>Description: <p th:text="${ticket.data.description}"></p></span>
+
+</div>
+<div th:unless="${ticket.status}">
+    <p th:text="${ticket.message}"></p>
+</div>
+</body>
+</html>

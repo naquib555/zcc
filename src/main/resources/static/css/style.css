@@ -1,0 +1,9 @@
+body {
+    color: #000;
+    font: normal 12px/14px "Trebuchet MS";
+    font-weight: 400;
+}
+
+table th {
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#455a64), to(#283135)) !important;
+}
