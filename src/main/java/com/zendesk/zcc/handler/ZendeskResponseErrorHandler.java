@@ -20,6 +20,8 @@ public class ZendeskResponseErrorHandler implements ResponseErrorHandler {
     public void handleError(ClientHttpResponse response) throws IOException {
         if(response.getStatusCode() == HttpStatus.NOT_FOUND)
             throw new AppException("Your searched information does not exists");
+        if(response.getStatusCode() == HttpStatus.BAD_REQUEST)
+            throw new AppException("You have searched for an Invalid information");
         else if(response.getStatusCode() == HttpStatus.UNAUTHORIZED)
             throw new AppException("Application facing authentication error with service provider");
         else throw new AppException("API is currently unavailable");
