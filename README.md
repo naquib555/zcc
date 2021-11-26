@@ -16,7 +16,7 @@ This application is packaged as a jar and it contains embedded tomcat. So no add
 Steps:
 * Clone this repository
 * Fullfill the requirements as per you need
-* Go to the root directory of the application
+* Go to the root directory of the application<br />
 Option#1 (running the application)
 * To the run the project immediately without building, a jar has been added in ```/target``` directory. So by using the following commands you can run the application.
 ```
