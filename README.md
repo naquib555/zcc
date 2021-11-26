@@ -16,14 +16,14 @@ This application is packaged as a jar and it contains embedded tomcat. So no add
 Steps:
 * Clone this repository
 * Fullfill the requirements as per you need
-* Go to the root directory of the application<br />
-* Option#1 (running the application)
-- To the run the project immediately without building, a jar has been added in ```/target``` directory. So by using the following commands you can run the application.
+* Go to the root directory of the application
+* Option#1 (running the application)<br />
+To the run the project immediately without building, a jar has been added in ```/target``` directory. So by using the following commands you can run the application.
 ```
         java -jar target/zcc.jar
 ```
 * Option#2 (building the application and running: for this option you will require Maven 3.x)
-- If you want to build the project and run the application with ```java -jar``` command, then execute the following commands:
+If you want to build the project and run the application with ```java -jar``` command, then execute the following commands:
 ```
         mvn clean package
         java -jar target/zcc.jar
