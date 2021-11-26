@@ -1,0 +1,9 @@
+com/zendesk/zcc/ZccApplication.class
+com/zendesk/zcc/service/ZendeskApiService.class
+com/zendesk/zcc/domain/ViewModel.class
+com/zendesk/zcc/domain/Ticket.class
+com/zendesk/zcc/service/ZendeskApiService$1.class
+com/zendesk/zcc/domain/TicketList.class
+com/zendesk/zcc/controller/TicketController.class
+com/zendesk/zcc/handler/ZendeskResponseErrorHandler.class
+com/zendesk/zcc/domain/AppException.class

@@ -1,0 +1,8 @@
+/Users/user/github-workspace/zcc/src/main/java/com/zendesk/zcc/controller/TicketController.java
+/Users/user/github-workspace/zcc/src/main/java/com/zendesk/zcc/domain/AppException.java
+/Users/user/github-workspace/zcc/src/main/java/com/zendesk/zcc/service/ZendeskApiService.java
+/Users/user/github-workspace/zcc/src/main/java/com/zendesk/zcc/domain/Ticket.java
+/Users/user/github-workspace/zcc/src/main/java/com/zendesk/zcc/domain/ViewModel.java
+/Users/user/github-workspace/zcc/src/main/java/com/zendesk/zcc/domain/TicketList.java
+/Users/user/github-workspace/zcc/src/main/java/com/zendesk/zcc/handler/ZendeskResponseErrorHandler.java
+/Users/user/github-workspace/zcc/src/main/java/com/zendesk/zcc/ZccApplication.java

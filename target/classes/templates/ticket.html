@@ -16,7 +16,7 @@
 <div th:if="${ticket.status}">
     <h3>Subject: <span th:text="${ticket.data.subject}"></span></h3>
     <h4>Status: <span th:text="${ticket.data.status}"></span></h4>
-    <span><u>Description:</u><p th:text="${ticket.data.description}"></p></span>
+    <span><b>Description:</b><p th:text="${ticket.data.description}"></p></span>
 
 </div>
 <div th:unless="${ticket.status}">
