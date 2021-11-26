@@ -4,7 +4,7 @@
 
 For building the application you need:
 - JDK 1.8 +
-- Maven
+- Maven 3.x
 
 For running the application you need:
 - Java 8 or greater
@@ -16,7 +16,22 @@ This application is packaged as a jar and it contains embedded tomcat. So no add
 Steps:
 * Clone this repository
 * Fullfill the requirements as per you need
-* To the run the project immediately without building, a jar has been added in ```/target``` directory. So by using the following commands you can run the application. Make sure you are in the root directory when excecuting the following commands.
+* Go to the root directory of the application
+Option#1 (running the application)
+* To the run the project immediately without building, a jar has been added in ```/target``` directory. So by using the following commands you can run the application.
 ```
         java -jar target/zcc.jar
-``` 
+```
+Option#2 (building the application and running: for this option you will require Maven 3.x)
+* If you want to build the project and run the application with ```java -jar``` command, then execute the following commands:
+```
+        mvn clean package
+        java -jar target/zcc.jar
+        or
+        mvn spring-boot:run
+```
+Once the application is started, in the console it will show:
+```
+2021-11-26 18:05:23.286  INFO 4953 --- [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8910 (http) with context path '/zcc'
+2021-11-26 18:05:23.301  INFO 4953 --- [  restartedMain] com.zendesk.zcc.ZccApplication           : Started ZccApplication in 2.369 seconds (JVM running for 2.816)
+```
