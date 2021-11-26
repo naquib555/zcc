@@ -53,7 +53,7 @@ public class ZendeskApiService {
     public TicketList getAllTickets(Integer page) throws Exception {
         final int perPageTicketCount = 25;
 
-        //building url
+        // building url
         UriComponentsBuilder uriComponentsBuilder = UriComponentsBuilder.fromHttpUrl(zendeskTicketUrl)
                 .queryParam("per_page", perPageTicketCount);
 
@@ -62,7 +62,7 @@ public class ZendeskApiService {
         }
         UriComponents uri = uriComponentsBuilder.build();
 
-        //get the response body
+        // get the response body
         JsonNode root = getResponse(uri.toUriString(), zendeskApiUsername, zendeskApiToken);
 
         ArrayNode ticketsNode = (ArrayNode) root.get("tickets");
@@ -73,7 +73,7 @@ public class ZendeskApiService {
             tickets.add(transformIntoTicket(element));
         }
 
-        //preparing ticket list
+        // preparing ticket list
         TicketList ticketList = new TicketList();
 
         ticketList.setPageTicketCount(tickets.size());
@@ -83,13 +83,9 @@ public class ZendeskApiService {
         ticketList.setNextPage(getPageNumberFromUrl(root.get("next_page").asText()));
         ticketList.setPreviousPage(getPageNumberFromUrl(root.get("previous_page").asText()));
 
-        //preparing per page ticket count text, which is shown in the UI
-        ticketList.setShowingText(String.format("Showing %d to %d of %d",
-                (ticketList.getPreviousPage() * perPageTicketCount) + 1,
-                ticketList.getCurrentPage() * perPageTicketCount < ticketList.getTotalTickets()
-                        ? ticketList.getCurrentPage() * perPageTicketCount : ticketList.getTotalTickets(),
-                ticketList.getTotalTickets()
-        ));
+        // preparing per page ticket count text, which is shown in the UI
+        ticketList.setPaginationInfo(getPaginationInfo(ticketList.getPreviousPage(), ticketList.getCurrentPage(),
+                ticketList.getTotalTickets(), perPageTicketCount));
 
         ticketList.setTickets(tickets);
 
@@ -107,13 +103,13 @@ public class ZendeskApiService {
      */
     public Ticket getTicket(String id) throws Exception {
 
-        //building url
+        // building url
         UriComponents uri = UriComponentsBuilder
                 .fromHttpUrl(zendeskTicketUrl)
                 .path(id)
                 .build();
 
-        //get the response body
+        // get the response body
         JsonNode root = getResponse(uri.toUriString(), zendeskApiUsername, zendeskApiToken);
 
         if (root != null || !root.isNull()) {
@@ -196,18 +192,41 @@ public class ZendeskApiService {
     }
 
     /**
+     * Returns the pagination info in text for the UI
+     * <p>
+     * This method process all prev/current and total/current tickets
+     * and return a text format of the pagination information
+     * which is per page ticket count
+     *
+     * @param previousPage  Previous page number of the returned list
+     * @param currentPage   Current page number of the returned list
+     * @param totalTickets  Total Ticket number
+     * @param perPageTicket Per page ticket count limit
+     * @return text of pagination information
+     */
+    public String getPaginationInfo(Integer previousPage, Integer currentPage,
+                                    Integer totalTickets, Integer perPageTicket) {
+
+        return String.format("Showing %d to %d of %d",
+                (previousPage * perPageTicket) + 1,
+                currentPage * perPageTicket < totalTickets
+                        ? currentPage * perPageTicket : totalTickets,
+                totalTickets);
+    }
+
+    /**
      * Returns viewModel with error message.
      * <p>
      * This method prepares the message of the exception and set in viewModel
      *
      * @param viewModel ViewModel object
-     * @param e The exception that occurred
+     * @param e         The exception that occurred
      * @return ViewModel object with exception message and status
      */
     public ViewModel handleException(ViewModel viewModel, Exception e) {
         viewModel.setStatus(false);
 
-        if(e instanceof AppException)
+        if (e instanceof AppException)
             viewModel.setMessage(e.getMessage());
         else
             viewModel.setMessage("Application is facing internal issues. Please try later");

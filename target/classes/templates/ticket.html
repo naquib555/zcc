@@ -6,6 +6,8 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Tickets</title>
+
+    <link th:href="@{/css/style.css}" rel="stylesheet"/>
 </head>
 <body>
 <h1>Ticket Viewer</h1>
@@ -14,7 +16,7 @@
 <div th:if="${ticket.status}">
     <h3>Subject: <span th:text="${ticket.data.subject}"></span></h3>
     <h4>Status: <span th:text="${ticket.data.status}"></span></h4>
-    <span>Description: <p th:text="${ticket.data.description}"></p></span>
+    <span><u>Description:</u><p th:text="${ticket.data.description}"></p></span>
 
 </div>
 <div th:unless="${ticket.status}">

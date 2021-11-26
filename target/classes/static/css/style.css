@@ -4,6 +4,11 @@ body {
     font-weight: 400;
 }
 
+table th, table td {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
 table th {
-    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#455a64), to(#283135)) !important;
+    text-align: left;
 }

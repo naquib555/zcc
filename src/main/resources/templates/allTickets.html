@@ -7,13 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>All Tickets</title>
 
-    <link href="../static/css/style.css" rel="stylesheet"/>
+    <link th:href="@{/css/style.css}" rel="stylesheet"/>
 </head>
 <body>
 <h1>Ticket Viewer</h1>
 <h3>Navigation: <a th:href="@{/ticket}">Home</a></h3>
 <div th:if="${allTickets.status}">
-    <h4><span th:text="${allTickets.data.showingText}"></span> Tickets</h4>
+    <h4><span th:text="${allTickets.data.getPaginationInfo}"></span> Tickets</h4>
     <div th:if="${allTickets.data.previousPage != 0}">
         <a th:href="@{showAll(page=${allTickets.data.previousPage})}">Previous Page</a>
     </div>

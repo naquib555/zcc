@@ -1,6 +1,5 @@
 package com.zendesk.zcc.domain;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 

@@ -8,7 +8,7 @@ import java.util.List;
 @Getter @Setter
 public class TicketList {
 
-    private String showingText;
+    private String paginationInfo;
     private Integer currentPage;
     private Integer previousPage;
     private Integer nextPage;

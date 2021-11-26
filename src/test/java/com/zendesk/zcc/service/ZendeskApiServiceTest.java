@@ -8,7 +8,6 @@ import com.zendesk.zcc.domain.AppException;
 import com.zendesk.zcc.domain.Ticket;
 import com.zendesk.zcc.domain.TicketList;
 import com.zendesk.zcc.domain.ViewModel;
-import com.zendesk.zcc.service.ZendeskApiService;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -85,6 +84,34 @@ class ZendeskApiServiceTest {
 
         // then
         Assertions.assertEquals(expectedPageNumber, result);
+
+    }
+
+    @Test
+    @DisplayName("Should return the proper pagination text")
+    void itShouldReturnProperPaginationText() {
+        // given
+        Integer previousPage = 0, currentPage = 1, totalTickets = 78, perPageTicketCount = 25;
+        String firstPage = "Showing 1 to 25 of 78";
+        String secondPage = "Showing 26 to 50 of 78";
+        String thirdPage = "Showing 51 to 75 of 78";
+        String fourthPage = "Showing 76 to 78 of 78";
+
+        // when
+        String firstPageResult = zendeskApiService.getPaginationInfo(previousPage, currentPage,
+                totalTickets, perPageTicketCount);
+        String secondPageResult = zendeskApiService.getPaginationInfo(++previousPage, ++currentPage,
+                totalTickets, perPageTicketCount);
+        String thirdPageResult = zendeskApiService.getPaginationInfo(++previousPage, ++currentPage,
+                totalTickets, perPageTicketCount);
+        String fourthPageResult = zendeskApiService.getPaginationInfo(++previousPage, ++currentPage,
+                totalTickets, perPageTicketCount);
+
+        // then
+        Assertions.assertEquals(firstPage, firstPageResult);
+        Assertions.assertEquals(secondPage, secondPageResult);
+        Assertions.assertEquals(thirdPage, thirdPageResult);
+        Assertions.assertEquals(fourthPage, fourthPageResult);
 
     }
 
