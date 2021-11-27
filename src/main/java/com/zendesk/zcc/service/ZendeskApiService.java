@@ -35,7 +35,6 @@ public class ZendeskApiService {
     @Value("${zendesk.api-token}")
     private String zendeskApiToken;
 
-    @Autowired
     public ZendeskApiService(RestTemplateBuilder restTemplateBuilder) {
         this.restTemplate = restTemplateBuilder
                 .errorHandler(new ZendeskResponseErrorHandler())
