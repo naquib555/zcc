@@ -38,9 +38,10 @@ To the run the project immediately without building, a jar has been added in ```
         java -jar target/zcc.jar
 ```
 * Option#2 (building the application and running: for this option you will require Maven 3.x)<br />
-If you want to build the project and run the application with ```java -jar``` command, then execute the following commands:
+If you want to build the project and run the application, then execute the following commands:
 ```
         mvn clean package
+        
         java -jar target/zcc.jar
         or
         mvn spring-boot:run
@@ -52,11 +53,11 @@ Once the application is started, in the console it will show:
 ```
 
 ## About this service
-This application will show all the tickets of a user account. Individual tickets can also be searched and viewed.
+This application will show all the tickets of a zendesk user account. Individual tickets can also be searched and viewed.
 
-Once the application is running, to view the outcome of the application, follow the below steps:
+Once the application is running, to view the UI of the application, follow the below steps:
 - Open a browser and use this url ```http://localhost:8910/zcc/ticket``` or ```http://127.0.0.1:8910/zcc/ticket```
-- It will show two option ```Show all tickets``` or ```Search a ticket```
+- It will show two options ```Show all tickets``` or ```Search a ticket```
 - To view all the tickets click ```Show all tickets``` or use any of these links ```http://localhost:8910/zcc/ticket/showAll``` or ```http://127.0.0.1:8910/zcc/ticket/showAll```
 - You can search for a ticket or click ```view``` in ```Show all tickets``` page for a ticket's detail description.
 
