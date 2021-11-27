@@ -56,7 +56,7 @@ This application will show all the tickets of a user account. Individual tickets
 
 Once the application is running, to view the outcome of the application, follow the below steps:
 - Open a browser and use this url ```http://localhost:8910/zcc/ticket``` or ```http://127.0.0.1:8910/zcc/ticket```
-- It will show to option ```Show all tickets``` or ```Search a ticket```
+- It will show two option ```Show all tickets``` or ```Search a ticket```
 - To view all the tickets click ```Show all tickets``` or use any of these links ```http://localhost:8910/zcc/ticket/showAll``` or ```http://127.0.0.1:8910/zcc/ticket/showAll```
 - You can search for a ticket or click ```view``` in ```Show all tickets``` page for a ticket's detail description.
 
