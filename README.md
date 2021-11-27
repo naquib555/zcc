@@ -1,6 +1,6 @@
 # Zendesk Coding Challange
 
-This is a spring boot application, used to complete the requirements of Zendesk Internship Coding Challenge. The function requirements that are covered for this challange:
+This is a spring boot application, used to complete the requirements of Zendesk Internship Coding Challenge. The functional requirements that are covered for this challange are:
 - Connect Zendesk API
 - Request all the tickets for your account
 - Display them in a list
@@ -11,7 +11,7 @@ Non functional requirements covered:
 - A README with installation and usage instruction ( You are reading this file now :smiley: )
 - A very basic UI, browser based has been implemented using thymeleaf
 - For single ticket view, only ticket subject, description, and status has been used
-- Handled API unavailability
+- Handled API unavailability (Showing human readable message for unavailability or any other errors)
 - Basic Unit Test cases written in Junit
 
 
@@ -30,7 +30,7 @@ This application is packaged as a jar and it contains embedded tomcat. So no add
 
 Steps:
 * Clone this repository
-* Fullfill the requirements as per you need
+* Fullfill the requirements as per your need
 * Go to the root directory of the application
 * Option#1 (running the application)<br />
 To the run the project immediately without building, a jar has been added in ```/target``` directory. So by using the following commands you can run the application.
@@ -58,4 +58,6 @@ Once the application is running, to view the outcome of the application, follow 
 - Open a browser and use this url ```http://localhost:8910/zcc/ticket``` or ```http://127.0.0.1:8910/zcc/ticket```
 - It will show to option ```Show all tickets``` or ```Search a ticket```
 - To view all the tickets click ```Show all tickets``` or use any of these links ```http://localhost:8910/zcc/ticket/showAll``` or ```http://127.0.0.1:8910/zcc/ticket/showAll```
-- You can search for a ticket or click ```view``` in ```Show all tickets``` page.
+- You can search for a ticket or click ```view``` in ```Show all tickets``` page for a ticket's detail description.
+
+Thank you!
