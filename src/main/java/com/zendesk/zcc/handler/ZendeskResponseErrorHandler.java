@@ -16,6 +16,12 @@ public class ZendeskResponseErrorHandler implements ResponseErrorHandler {
                 || response.getStatusCode().series() == HttpStatus.Series.SERVER_ERROR;
     }
 
+    /*
+     * This function handle error from the API call
+     *
+     * It throws an exception for few status codes with error message
+     * and a generic message for other status codes
+     */
     @Override
     public void handleError(ClientHttpResponse response) throws IOException {
         if(response.getStatusCode() == HttpStatus.NOT_FOUND)
